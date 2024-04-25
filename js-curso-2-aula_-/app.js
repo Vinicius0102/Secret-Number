@@ -6,13 +6,13 @@ let tentativa = 1;
 function exibirTextoTela(tag, texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
-    responsiveVoice.speak(texto,'Brazilian Portuguese Female', {rate:1.2});
+    responsiveVoice.speak(texto,'US English Female', {rate:1.1});
 
 }
 
 function textDaTela() {
-    exibirTextoTela('h1', 'Jogo do numero secreto');
-    exibirTextoTela('p', 'Escolha um numero entre 1 e 10');
+    exibirTextoTela('h1', 'Game Secret Number');
+    exibirTextoTela('p', 'Choose a number between 1 and 10');
 }
 
 textDaTela();
@@ -22,9 +22,9 @@ function verificarChute(){
 
     if (chute == numeroSecreto){
 
-        let palavraTentativa = tentativa > 1 ? 'tentativas' : 'tentativa';
-        let mensagemTentativa = `Voce descobriu o numero secreto com ${tentativa} ${palavraTentativa}`;
-        exibirTextoTela('h1', 'Voce acertou!');
+        let palavraTentativa = tentativa > 1 ? 'attempts' : 'attempt';
+        let mensagemTentativa = `Congratulations! You discovered the secret number with ${tentativa} ${palavraTentativa}`;
+        exibirTextoTela('h1', 'You got it right!');
         exibirTextoTela('p', mensagemTentativa );
         document.getElementById('reiniciar').removeAttribute('disabled');
 
@@ -32,10 +32,10 @@ function verificarChute(){
 
         if ( chute > numeroSecreto){
 
-            exibirTextoTela('p', 'Numero secreto e menor.');
+            exibirTextoTela('p', 'Try again, number is lower.');
         } else {
 
-            exibirTextoTela('p', 'Numero secreto e maior');
+            exibirTextoTela('p', 'Try again, number is higher');
         }
 
         tentativa++;
